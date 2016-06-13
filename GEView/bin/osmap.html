@@ -1,0 +1,75 @@
+<html>
+<head>
+
+<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+<script type="text/javascript">
+
+var map = null;
+var zoom=16;
+var markers;
+var marker;
+
+function init() {
+    var options = {
+        controls: [
+            new OpenLayers.Control.Navigation(),
+            new OpenLayers.Control.PanZoomBar()
+        ]
+    };
+    map = new OpenLayers.Map("mapdiv",options);
+    map.addLayer(new OpenLayers.Layer.OSM());
+
+    var lonlat = new OpenLayers.LonLat(139 ,35)
+          .transform(
+            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            map.getProjectionObject() // to Spherical Mercator Projection
+          );
+
+    markers = new OpenLayers.Layer.Markers( "Markers" );
+    marker = new OpenLayers.Marker(lonlat) ;
+    markers.addMarker(marker);
+    map.addLayer(markers);
+        
+    map.setCenter (lonlat, zoom);
+
+    map.events.register("click", map , function(e){
+        var opx = map.getLayerPxFromViewPortPx(e.xy) ;
+        marker.map = map ;
+        marker.moveTo(opx) ;
+        map.setCenter (marker.lonlat, zoom);
+        
+        var lonlat = marker.lonlat.transform(map.getProjectionObject(), "EPSG:4326");
+        window.external.setTextBox(lonlat.lat, lonlat.lon);
+    });
+
+    window.external.setLatLon();
+}
+
+function SetCent(lat, lon) {
+    if (map == null) return;
+    
+    var lonlat = new OpenLayers.LonLat(lon ,lat)
+      .transform(
+        new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+        map.getProjectionObject() // to Spherical Mercator Projection
+      );
+    map.setCenter (lonlat, zoom);
+}
+function PosMark(lat, lon) {
+    var lonlat = new OpenLayers.LonLat(lon ,lat)
+      .transform(
+        new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+        map.getProjectionObject() // to Spherical Mercator Projection
+      );
+    var px = map.getLayerPxFromViewPortPx(map.getPixelFromLonLat(lonlat));
+    marker.map = map;
+    marker.moveTo(px);
+}
+
+</script>
+</head>
+
+<body style="margin: 0;"; scroll="no" onload="init()">
+    <div id="mapdiv" style="height: 100%; width: 100%;"> </div>
+</body>
+</html>

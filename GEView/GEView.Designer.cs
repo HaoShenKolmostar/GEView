@@ -98,7 +98,7 @@
             this.tb_lat.Name = "tb_lat";
             this.tb_lat.Size = new System.Drawing.Size(80, 19);
             this.tb_lat.TabIndex = 2;
-            this.tb_lat.Text = "35.687806";
+            this.tb_lat.Text = "43.567073";
             // 
             // tb_lon
             // 
@@ -106,7 +106,7 @@
             this.tb_lon.Name = "tb_lon";
             this.tb_lon.Size = new System.Drawing.Size(80, 19);
             this.tb_lon.TabIndex = 3;
-            this.tb_lon.Text = "139.692844";
+            this.tb_lon.Text = "1.475306";
             // 
             // tb_alt
             // 
@@ -114,7 +114,7 @@
             this.tb_alt.Name = "tb_alt";
             this.tb_alt.Size = new System.Drawing.Size(40, 19);
             this.tb_alt.TabIndex = 4;
-            this.tb_alt.Text = "10.0";
+            this.tb_alt.Text = "2.0";
             // 
             // tb_head
             // 
@@ -204,7 +204,7 @@
             // 
             this.b_cap.Enabled = false;
             this.b_cap.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.b_cap.Location = new System.Drawing.Point(1221, 923);
+            this.b_cap.Location = new System.Drawing.Point(1163, 923);
             this.b_cap.Name = "b_cap";
             this.b_cap.Size = new System.Drawing.Size(55, 19);
             this.b_cap.TabIndex = 20;
@@ -249,7 +249,6 @@
             // 
             // wb_gm
             // 
-            this.wb_gm.AllowNavigation = false;
             this.wb_gm.AllowWebBrowserDrop = false;
             this.wb_gm.Location = new System.Drawing.Point(928, 489);
             this.wb_gm.MinimumSize = new System.Drawing.Size(20, 20);
@@ -257,6 +256,7 @@
             this.wb_gm.ScrollBarsEnabled = false;
             this.wb_gm.Size = new System.Drawing.Size(460, 423);
             this.wb_gm.TabIndex = 25;
+            this.wb_gm.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // saveFileDialog
             // 
@@ -302,7 +302,7 @@
             // 
             this.b_update.Enabled = false;
             this.b_update.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.b_update.Location = new System.Drawing.Point(1163, 923);
+            this.b_update.Location = new System.Drawing.Point(1221, 923);
             this.b_update.Name = "b_update";
             this.b_update.Size = new System.Drawing.Size(55, 19);
             this.b_update.TabIndex = 28;
@@ -386,7 +386,7 @@
             // 
             this.b_kml.Enabled = false;
             this.b_kml.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.b_kml.Location = new System.Drawing.Point(1337, 922);
+            this.b_kml.Location = new System.Drawing.Point(1337, 923);
             this.b_kml.Name = "b_kml";
             this.b_kml.Size = new System.Drawing.Size(55, 19);
             this.b_kml.TabIndex = 35;

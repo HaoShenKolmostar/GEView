@@ -76,9 +76,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GEView.en.resx">
-      <DependentUpon>GEView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GEView.resx">
       <DependentUpon>GEView.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,7 +110,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(ProjectDir)gmap.html $(TargetDir)</PostBuildEvent>
+    <PostBuildEvent>copy $(ProjectDir)osmap.html $(TargetDir)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

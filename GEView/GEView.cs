@@ -3,15 +3,18 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Threading;
+using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Web.Script.Serialization;
+using System.Diagnostics;
+using Microsoft.Win32;
 using FC.GEPluginCtrls;
 
 namespace GEView
 {
-    [System.Runtime.InteropServices.ComVisibleAttribute(true)]
+    [ComVisibleAttribute(true)]
 
     public partial class GEView : Form
     {
@@ -32,9 +35,11 @@ namespace GEView
         public GEView()
         {
             InitializeComponent();
-            
+
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+
             wb_gm.ObjectForScripting = this;
-            wb_gm.Navigate(Path.Combine(Environment.CurrentDirectory, "gmap.html"));
+            wb_gm.Navigate(Path.Combine(Environment.CurrentDirectory, "osmap.html"));
 
             gwb_ge.LoadEmbeddedPlugin();
 
@@ -367,14 +372,6 @@ namespace GEView
             wb_gm.Document.InvokeScript("SetCent", obj);
         }
 
-        private void gm_addmark(double lat, double lon)
-        {
-            Object[] obj = new Object[2];
-            obj[0] = lat.ToString();
-            obj[1] = lon.ToString();
-            wb_gm.Document.InvokeScript("AddMark", obj);
-        }
-
         private void gm_posmark(double lat, double lon)
         {
             Object[] obj = new Object[2];
@@ -402,7 +399,7 @@ namespace GEView
         public void setLatLon()
         {
             gm_setcent(double.Parse(tb_lat.Text), double.Parse(tb_lon.Text));
-            gm_addmark(double.Parse(tb_lat.Text), double.Parse(tb_lon.Text));
+            gm_posmark(double.Parse(tb_lat.Text), double.Parse(tb_lon.Text));
         }
 
         public void setTextBox(double lat, double lon)
