@@ -98,7 +98,7 @@
             this.tb_lat.Name = "tb_lat";
             this.tb_lat.Size = new System.Drawing.Size(80, 19);
             this.tb_lat.TabIndex = 2;
-            this.tb_lat.Text = "43.567073";
+            this.tb_lat.Text = "51.51381379";
             // 
             // tb_lon
             // 
@@ -106,7 +106,7 @@
             this.tb_lon.Name = "tb_lon";
             this.tb_lon.Size = new System.Drawing.Size(80, 19);
             this.tb_lon.TabIndex = 3;
-            this.tb_lon.Text = "1.475306";
+            this.tb_lon.Text = "-0.07685065";
             // 
             // tb_alt
             // 
